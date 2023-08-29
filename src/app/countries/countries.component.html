@@ -1,0 +1,18 @@
+<div class="col-xs-12">
+    <div class="row row-cols-1 row-cols-md-4 g-4">
+        <div class="col" *ngFor="let country of countriesToShow$ | async ">
+            <div class="card h-100">
+                <img [src]="country.flags.svg" class="card-img-top" alt="...">
+                <div class="card-body">
+                <h5 class="card-title">{{country.name.common | uppercase}}</h5>
+                <p class="card-text"><strong>Population:</strong> {{country.population | number: '1.0'}}</p>
+                <p class="card-text"><strong>Continent:</strong> {{country.continents}}</p>
+                <p class="card-text"><strong>Capital:</strong> {{country.capital}}</p>
+                <a class="stretched-link" routerLink="{{country.name.common}}"></a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+

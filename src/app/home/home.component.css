@@ -1,0 +1,38 @@
+.search-country, select{
+    margin: 20px 0px;
+}
+
+
+.search-country input{
+    padding: 10px 40px;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 10px;
+}
+
+select{
+    padding: 10px 40px;
+    font-size: 1.3rem;
+    border: 1px solid black;
+    border-radius: 30px;
+}
+
+:host-context( .light ) .search-country input {
+    background-color: var(--white);
+    color: var(--l-text);
+}
+
+:host-context( .light ) select {
+    background-color: var(--white);
+    color: var(--l-text);
+}
+
+:host-context( .dark ) select {
+    background-color: var(--d-element);
+    color: var(--d-text);
+}
+
+:host-context( .dark ) .search-country input {
+    background-color: var(--d-element);
+    color: var(--d-text);
+}

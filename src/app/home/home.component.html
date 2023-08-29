@@ -1,0 +1,20 @@
+<div class="container">
+    <div class="row">
+        <div class="col search-country">
+            <input type="search" placeholder="Search for a country" (input)="onSearch($event)">
+        </div>
+        <div class="col end">
+            <div class="dropdown" >
+                <select name="" id="" (change)="onFilter($event)">
+                        <option value="">Filter by continent</option>
+                        <option *ngFor="let continent of continents$ | async; let i = index" [value]="continent">{{continent}}</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <app-countries></app-countries>
+    </div>
+</div>
+
+

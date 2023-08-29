@@ -1,0 +1,70 @@
+<div class="container" *ngIf="selectedCountry$ | async as country">
+    <div class="row">
+        <div class="col-3">
+            <button class="btn back-btn" routerLink="../">Back</button>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-6">
+            <img [src]="country.flags.svg" alt="aaaaa">
+        </div>
+        <div class="col-6">
+            <div class="row">
+                <div class="col-12">
+                    <h3>{{country.name.common | uppercase}}</h3>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Official Name: </strong>{{country.name.official}}</p>
+                </div>
+                <div class="col-6">
+                    <p><strong>Population: </strong>{{country.population | number: '1.0'}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Continent: </strong>{{country.continents}}</p>
+                </div>
+                <div class="col-6" *ngIf="key$ | async as key; else ovo" >
+                    <p><strong>Currencies: </strong>{{key.name}} ( {{key.symbol}} )</p>
+                </div>
+            </div>
+
+            <ng-template #ovo>
+                <div class="col-6">
+                    <p><strong>Currencies: </strong>Information not found</p>
+                </div>
+            </ng-template>
+
+            <div class="row">
+                <div class="col-6">
+                    <p><strong>Region: </strong>{{country.subregion}}</p>
+                </div>
+                <div class="col-6" *ngIf="languages$ | async as language; else jezik">
+                    <p><strong>Languages: </strong> {{language}}</p>
+                </div>
+
+                <ng-template #jezik>
+                    <div class="col-6">
+                        <p><strong>Languages: </strong>Information not found</p>
+                    </div>
+                </ng-template>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p><strong>Capital: </strong>{{country.capital}}</p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-12">
+                    <p><strong>Borders Countries:</strong></p><button class="btn" *ngFor="let border of borders$ | async" (click)="onClickedBorder(border[0])">{{border}}</button>
+                </div>
+            </div> 
+        </div>
+    </div>
+</div>

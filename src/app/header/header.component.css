@@ -1,0 +1,30 @@
+.navbar{
+    min-height: 80px;
+}
+
+.navbar-brand{
+    padding-left: 30px;
+    text-transform: uppercase;
+}
+
+.d-flex{
+    padding-right: 30px;
+}
+
+
+
+:host-context( .light ) .navbar {
+    background-color: var(--white)!important;
+}
+
+:host-context( .light ) a {
+    color: var(--l-text);
+}
+
+:host-context( .dark ) .navbar {
+    background-color: var(--d-element)!important;
+}
+
+:host-context( .dark ) a {
+    color: var(--d-text);
+}

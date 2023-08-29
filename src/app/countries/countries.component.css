@@ -1,0 +1,9 @@
+:host-context(.light) .card{
+    background-color: var(--l-bg);
+    color: var(--l-text);
+}
+
+:host-context(.dark) .card{
+    background-color: var(--d-element);
+    color: var(--d-text);
+} 
