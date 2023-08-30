@@ -20,7 +20,7 @@ export class CountryDetailsComponent implements OnInit{
       this.countryParamSubject$.next(params['name']);
     })
   }
-
+  //Getting data for the selected country
   selectedCountry$ = combineLatest([
     this.apiService.allCountries$,
     this.countryParamAction$
@@ -34,7 +34,7 @@ export class CountryDetailsComponent implements OnInit{
     map(country => country[0]),
     shareReplay(1)
   );
-
+  //Getting full border names.
   borders$ = combineLatest([ 
     this.apiService.allCountries$,
     this.selectedCountry$
@@ -58,7 +58,7 @@ export class CountryDetailsComponent implements OnInit{
   );
 
 
-
+  //Getting the key value for currency
   key$ = this.selectedCountry$.pipe(
     map(country =>country.currencies? country.currencies[Object.keys(country.currencies).join()]:undefined),
   );

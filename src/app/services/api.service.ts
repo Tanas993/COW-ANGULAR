@@ -10,9 +10,11 @@ import { map, tap, BehaviorSubject, shareReplay } from 'rxjs';
 export class ApiService {
   private apiUrl = 'https://restcountries.com/v3.1';
   
+  //Behavior subject for filtering countries based on selected continent.
   private selectedContinentSubject = new BehaviorSubject<string>('');
   selectedContinentAction$ = this.selectedContinentSubject.asObservable();
 
+   //Behavior subject for filtering countries based on search filter.
   private searchFilterSubject = new BehaviorSubject<string>('');
   searchFilterAction$ = this.searchFilterSubject.asObservable();
   

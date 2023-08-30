@@ -14,11 +14,13 @@ export class CountriesComponent {
   selectedContinent$ = this.apiService.selectedContinentAction$;
   searchInput$ = this.apiService.searchFilterAction$;
 
+  //Getting all countrties and sorting them from A to Z.
   countries$ = this.apiService.allCountries$.pipe(
     map(countries => countries.sort(this.sortByName)),
     shareReplay(1)
   );
-
+  
+  //Showing countries based on selected continent and/or search filter.
   countriesToShow$ = combineLatest([
     this.countries$,
     this.selectedContinent$,
